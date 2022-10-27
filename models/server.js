@@ -12,7 +12,7 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-
+        this.usuariosPath = '/api/usuarios';
         //Middlewares
         this.middlewares();
         //Rutas de mi aplicación
@@ -29,26 +29,7 @@ class Server{
          * endpoins muy comunes
          */
         //Petición get
-        this.app.get('/app', function (req, res) { 
-          res.json({
-            msg: 'get API'
-          });
-        });
-        this.app.put('/app', function (req, res) { 
-            res.json({
-              msg: 'put API'
-            });
-        });
-        this.app.post('/app', function (req, res) { 
-            res.json({
-              msg: 'post API'
-            });
-        });
-        this.app.delete('/app', function (req, res) { 
-            res.json({
-              msg: 'delete API'
-            });
-        });
+        this.app.use( this.usuariosPath, require('../routes/usuarios') );
           
     }
     
