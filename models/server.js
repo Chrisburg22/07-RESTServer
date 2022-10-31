@@ -30,10 +30,7 @@ class Server{
       this.app.use( express.static('public') );
     }
     routes(){
-      /**
-       * endpoins muy comunes
-       */
-      //Petición get
+      //Utilizando un middleware para definir las rutas 
       this.app.use( this.usuariosPath, require('../routes/usuarios') );
           
     }

@@ -13,6 +13,7 @@ const usuarioGet = (req=request, res=response) => {
 }
 
 const usuarioPut =  (req, res=response) => { 
+  //Se extrae el valor del parametro id que se manda en la require
     const id = req.params.id;
     res.json({
       msg: 'put API - Controller',
